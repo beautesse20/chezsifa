@@ -213,12 +213,47 @@
   @media (prefers-reduced-motion: reduce) {
     .glow, .badge-flame, .badge-flame img { animation: none !important; }
     .smoke { display: none !important; }
+    .intro-smoke { display: none !important; }
     .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
     * { scroll-behavior: auto !important; }
+  }
+
+  /* ---------- intro smoke: plays once, on every full page load ---------- */
+  .intro-smoke { position: fixed; inset: 0; z-index: 9999; pointer-events: none; overflow: hidden; }
+  .intro-smoke__wash { position: absolute; inset: -10%; background: #362E29; animation: intro-wash 3.2s ease forwards; }
+  .intro-smoke__blob {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 68%);
+    filter: blur(30px);
+    animation: intro-blob 3.2s ease forwards;
+    opacity: 0;
+  }
+  @keyframes intro-wash {
+    0% { opacity: 1; }
+    55% { opacity: .93; }
+    100% { opacity: 0; }
+  }
+  @keyframes intro-blob {
+    0% { transform: scale(.6) translate(0, 0); opacity: 0; }
+    18% { opacity: .95; }
+    100% { transform: scale(1.8) translate(var(--bx, 0), var(--by, -40px)); opacity: 0; }
+  }
+  @media (max-width: 860px) {
+    .intro-smoke__blob { filter: blur(20px); }
   }
 </style>
 </head>
 <body>
+
+<div class="intro-smoke" id="introSmoke" aria-hidden="true">
+  <div class="intro-smoke__wash"></div>
+  <span class="intro-smoke__blob" style="width:520px; height:520px; left:-10%; top:-15%; --bx:30px; --by:-20px; animation-delay:0s;"></span>
+  <span class="intro-smoke__blob" style="width:460px; height:460px; right:-8%; top:-10%; --bx:-25px; --by:-15px; animation-delay:.15s;"></span>
+  <span class="intro-smoke__blob" style="width:480px; height:480px; left:20%; bottom:-20%; --bx:15px; --by:-35px; animation-delay:.1s;"></span>
+  <span class="intro-smoke__blob" style="width:420px; height:420px; right:15%; bottom:-15%; --bx:-20px; --by:-30px; animation-delay:.25s;"></span>
+  <span class="intro-smoke__blob" style="width:520px; height:520px; left:32%; top:20%; --bx:10px; --by:-25px; animation-delay:.05s;"></span>
+  <span class="intro-smoke__blob" style="width:360px; height:360px; left:55%; top:45%; --bx:-15px; --by:-20px; animation-delay:.3s;"></span>
+</div>
 
 <header class="site-nav">
   <div class="container nav-inner">
@@ -460,6 +495,12 @@
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // remove the intro smoke overlay from the render tree once it has fully dissipated
+  const introSmoke = document.getElementById('introSmoke');
+  if (introSmoke) {
+    setTimeout(() => { introSmoke.style.display = 'none'; }, 3600);
+  }
 
   // lightweight scroll-reveal — IntersectionObserver only, no library
   if ('IntersectionObserver' in window) {
