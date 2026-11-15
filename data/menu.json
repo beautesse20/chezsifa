@@ -1,0 +1,102 @@
+{
+  "categories": [
+    { "id": "grill", "fr": "Grillades", "en": "Grills", "dfr": "Poulet, porc, bœuf, chèvre ou poisson, cuits au charbon ou au four, avec 1 accompagnement au choix.", "den": "Chicken, pork, beef, goat or fish, charcoal-grilled or oven-baked, with 1 side of your choice.", "composable": true, "sort": 1 },
+    { "id": "trad", "fr": "Plats du pays", "en": "Traditional dishes", "dfr": "Pondu, ragoût de bœuf, makayabu, poulet à l'arachide… À accompagner de fufu, kwanga, riz ou plantain.", "den": "Cassava leaves, beef stew, makayabu, chicken in peanut sauce… Pair with fufu, kwanga, rice or plantain.", "composable": true, "sort": 2 },
+    { "id": "veg", "fr": "Végétarien", "en": "Vegetarian", "dfr": "Plantain et haricots, riz et pois chiches.", "den": "Plantain and beans, rice and chickpeas.", "composable": true, "sort": 3 },
+    { "id": "sides", "fr": "Accompagnements", "en": "Sides", "dfr": "Riz, féculents et accompagnements, en Regular ou Large.", "den": "Rice, starches and sides, Regular or Large.", "composable": false, "sort": 4 },
+    { "id": "starters", "fr": "Entrées", "en": "Appetizers", "dfr": "Par lot de 5 pièces. Le prix par lot baisse dès 51 pièces.", "den": "Packs of 5 pieces. Lower price per pack from 51 pieces.", "composable": false, "sort": 5 },
+    { "id": "pasta", "fr": "Pâtes & cuisine occidentale", "en": "Pasta & Western", "dfr": "Pâtes sauce bœuf, macaroni au fromage, lasagne.", "den": "Pasta with beef sauce, mac & cheese, lasagna.", "composable": true, "sort": 6 },
+    { "id": "salads", "fr": "Salades", "en": "Salads", "dfr": "Fraîches, en Regular ou Large.", "den": "Fresh, Regular or Large.", "composable": false, "sort": 7 },
+    { "id": "kids", "fr": "Menu enfants BBQ", "en": "Kids' BBQ menu", "dfr": "Hot-dog ou hamburger avec frites, macaroni au fromage.", "den": "Hot dog or burger with fries, mac & cheese.", "composable": true, "sort": 8 },
+    { "id": "extras", "fr": "Protéines supplémentaires", "en": "Extra proteins", "dfr": "À ajouter à n'importe quelle assiette.", "den": "Add to any plate.", "composable": false, "sort": 9 },
+    { "id": "cakes", "fr": "Douceurs", "en": "Cakes", "dfr": "Gâteaux faits maison, vendus entiers (environ 6 pouces, 6 à 8 portions).", "den": "Homemade whole cakes (about 6 inches, 6 to 8 servings).", "composable": false, "sort": 10 },
+    { "id": "sauces", "fr": "Marché Sifa", "en": "Sifa Market", "dfr": "Sauce tomate rôtie et marinades vertes maison, en 250 ml ou 500 ml.", "den": "Homemade roasted tomato sauce and green marinades, 250 ml or 500 ml.", "composable": false, "sort": 11 }
+  ],
+  "includedSides": [
+    { "id": "plantain", "fr": "Plantain frit", "en": "Fried plantain" },
+    { "id": "beans", "fr": "Haricots rouges", "en": "Red beans" },
+    { "id": "chick-coco", "fr": "Pois chiches au lait de coco", "en": "Chickpeas with coconut milk" },
+    { "id": "chick", "fr": "Pois chiches sans lait de coco", "en": "Chickpeas, no coconut milk" },
+    { "id": "white", "fr": "Riz blanc", "en": "White rice" },
+    { "id": "fried-veg", "fr": "Riz frit aux légumes", "en": "Fried rice with vegetables" },
+    { "id": "fried", "fr": "Riz frit sans légumes", "en": "Fried rice, no vegetables" }
+  ],
+  "products": [
+    { "id": "chicken1", "cat": "grill", "fr": "1 morceau de poulet BBQ", "en": "1 pc BBQ chicken", "dfr": "Mariné, cuit au charbon.", "den": "Marinated, charcoal-grilled.", "sizes": "rl", "r": 17, "l": 25, "side": true, "featured": true },
+    { "id": "wings", "cat": "grill", "fr": "Ailes de poulet BBQ", "en": "BBQ chicken wings", "sizes": "rl", "r": 18, "l": 25, "side": true },
+    { "id": "wholechicken", "cat": "grill", "fr": "Poulet entier BBQ", "en": "Whole BBQ chicken", "sizes": "rl", "r": 55, "l": 60, "side": true },
+    { "id": "ribs", "cat": "grill", "fr": "Côtes levées de porc", "en": "Pork ribs", "sizes": "rl", "r": 15, "l": 20, "side": true },
+    { "id": "chops", "cat": "grill", "fr": "Côtelettes de porc", "en": "Pork chops", "sizes": "rl", "r": 15, "l": 20, "side": true },
+    { "id": "skewers", "cat": "grill", "fr": "Brochettes de bœuf BBQ", "en": "BBQ beef skewers", "sizes": "rl", "r": 15, "l": 22, "side": true },
+    { "id": "goat", "cat": "grill", "fr": "Chèvre BBQ", "en": "BBQ goat meat", "sizes": "rl", "r": 25, "l": 30, "side": true },
+    { "id": "tilapia", "cat": "grill", "fr": "Tilapia BBQ", "en": "BBQ tilapia", "sizes": "rl", "r": 15, "l": 18, "side": true },
+    { "id": "mackerel", "cat": "grill", "fr": "Maquereau BBQ", "en": "BBQ mackerel", "sizes": "rl", "r": 18, "l": 24, "side": true },
+    { "id": "seabass", "cat": "grill", "fr": "Bar sauté", "en": "Sautéed sea bass", "sizes": "rl", "r": 15, "l": 20, "side": true },
+
+    { "id": "pondu", "cat": "trad", "fr": "Pondu (feuilles de manioc)", "en": "Pondu (cassava leaves)", "dfr": "La recette de la maison.", "den": "The house recipe.", "sizes": "rl", "r": 15, "l": 20, "featured": true },
+    { "id": "beanstew", "cat": "trad", "fr": "Haricots en sauce", "en": "Bean stew", "sizes": "rl", "r": 10, "l": 15 },
+    { "id": "hardchicken", "cat": "trad", "fr": "Poulet dur (mature)", "en": "Mature (hard) chicken", "dfr": "Sauce tomate ou sauce arachide.", "den": "Tomato or peanut sauce.", "sizes": "rl", "r": 16, "l": 22, "side": true,
+      "opts": [ { "key": "sauce", "fr": "Sauce", "en": "Sauce", "choices": [ { "id": "tomato", "fr": "Sauce tomate", "en": "Tomato sauce" }, { "id": "peanut", "fr": "Sauce arachide", "en": "Peanut sauce" } ] } ] },
+    { "id": "beefstew", "cat": "trad", "fr": "Ragoût de bœuf", "en": "Beef stew", "sizes": "rl", "r": 18, "l": 25 },
+    { "id": "catfish", "cat": "trad", "fr": "Poisson-chat vapeur", "en": "Steamed catfish", "sizes": "rl", "r": 13, "l": 17 },
+    { "id": "makayabu", "cat": "trad", "fr": "Makayabu (morue salée)", "en": "Makayabu (salted cod)", "dfr": "Aux poivrons, aux oignons ou sauce d'aubergine.", "den": "With peppers, onions or eggplant sauce.", "sizes": "rl", "r": 18, "l": 25, "featured": true,
+      "opts": [ { "key": "style", "fr": "Préparation", "en": "Style", "choices": [ { "id": "pepper", "fr": "Aux poivrons", "en": "With peppers" }, { "id": "onion", "fr": "Aux oignons", "en": "With onions" }, { "id": "eggplant", "fr": "Sauce d'aubergine", "en": "Eggplant sauce" } ] } ] },
+
+    { "id": "plantainbeans", "cat": "veg", "fr": "Plantain frit + haricots sauce tomate", "en": "Fried plantain + beans in tomato sauce", "sizes": "rl", "r": 17, "l": 22 },
+    { "id": "ricechick", "cat": "veg", "fr": "Riz + pois chiches", "en": "Rice + chickpeas", "sizes": "rl", "r": 15, "l": 20,
+      "opts": [ { "key": "rice", "fr": "Riz", "en": "Rice", "choices": [ { "id": "white", "fr": "Riz blanc", "en": "White rice" }, { "id": "fried", "fr": "Riz frit", "en": "Fried rice" } ] },
+                { "key": "chickpeas", "fr": "Pois chiches", "en": "Chickpeas", "choices": [ { "id": "coco", "fr": "Au lait de coco", "en": "With coconut milk" }, { "id": "tomato", "fr": "Sauce tomate", "en": "Tomato sauce" } ] } ] },
+
+    { "id": "alloco", "cat": "sides", "fr": "Plantain frit / alloco", "en": "Fried plantain / alloco", "sizes": "rl", "r": 7, "l": 13 },
+    { "id": "friedveg", "cat": "sides", "fr": "Riz frit aux légumes", "en": "Fried rice with vegetables", "dfr": "Carotte et petits pois.", "den": "Carrot and green peas.", "sizes": "rl", "r": 9, "l": 15 },
+    { "id": "friedplain", "cat": "sides", "fr": "Riz frit sans légumes", "en": "Fried rice, no vegetables", "sizes": "rl", "r": 8, "l": 15 },
+    { "id": "whiterice", "cat": "sides", "fr": "Riz blanc vapeur", "en": "White steamed rice", "sizes": "rl", "r": 6, "l": 11 },
+    { "id": "fries", "cat": "sides", "fr": "Frites", "en": "Fries", "sizes": "rl", "r": 5, "l": 8 },
+    { "id": "jollof", "cat": "sides", "fr": "Riz jollof", "en": "Jollof rice", "sizes": "rl", "r": 10, "l": 15 },
+    { "id": "pilau", "cat": "sides", "fr": "Riz pilau", "en": "Pilau rice", "sizes": "rl", "r": 10, "l": 13.5 },
+    { "id": "plantainsteam", "cat": "sides", "fr": "Plantain vapeur", "en": "Steamed plantain", "sizes": "rl", "r": 6, "l": 10.5 },
+    { "id": "cassava", "cat": "sides", "fr": "Manioc bouilli", "en": "Boiled cassava", "sizes": "rl", "r": 5, "l": 9 },
+    { "id": "fufu", "cat": "sides", "fr": "Fufu (ugali)", "en": "Fufu (ugali)", "sizes": "rl", "r": 5, "l": 8, "lfr": "7–8 $", "len": "$7–8" },
+    { "id": "kwanga", "cat": "sides", "fr": "Kwanga / chikwangue", "en": "Kwanga / chikwangue", "dfr": "Bâtonnets de manioc.", "den": "Cassava sticks.", "sizes": "rl", "r": 10, "l": 20 },
+    { "id": "potatoes", "cat": "sides", "fr": "Pommes de terre sautées", "en": "Sautéed potatoes", "sizes": "rl", "r": 7, "l": 13 },
+
+    { "id": "mikate", "cat": "starters", "fr": "Mikate (beignets africains)", "en": "Mikate (African donuts)", "sizes": "pack", "r": 4, "l": 3 },
+    { "id": "mandazi", "cat": "starters", "fr": "Mandazi", "en": "Mandazi", "sizes": "pack", "r": 5, "l": 4 },
+    { "id": "samosabeef", "cat": "starters", "fr": "Samoussas au bœuf", "en": "Beef samosas", "sizes": "pack", "r": 8, "l": 7 },
+    { "id": "samosaveg", "cat": "starters", "fr": "Samoussas végé", "en": "Veggie samosas", "sizes": "pack", "r": 5, "l": 4 },
+    { "id": "rollbeef", "cat": "starters", "fr": "Rouleaux de printemps au bœuf", "en": "Beef spring rolls", "sizes": "pack", "r": 5, "l": 4 },
+    { "id": "rollveg", "cat": "starters", "fr": "Rouleaux de printemps végé", "en": "Veggie spring rolls", "sizes": "pack", "r": 4, "l": 3 },
+
+    { "id": "pastabeef", "cat": "pasta", "fr": "Pâtes + sauce tomate maison au bœuf", "en": "Pasta + homemade beef tomato sauce", "sizes": "rl", "r": 13, "l": 18 },
+    { "id": "mac", "cat": "pasta", "fr": "Macaroni au fromage", "en": "Mac & cheese", "sizes": "rl", "r": 15, "l": 18 },
+    { "id": "lasagna", "cat": "pasta", "fr": "Lasagne viande et légumes", "en": "Meat & vegetable lasagna", "sizes": "rl", "r": 15, "l": 18 },
+
+    { "id": "green", "cat": "salads", "fr": "Salade verte fraîche", "en": "Fresh green salad", "sizes": "rl", "r": 7, "l": 10 },
+    { "id": "slaw", "cat": "salads", "fr": "Salade de chou et carottes", "en": "Cabbage & carrot salad", "sizes": "rl", "r": 6, "l": 9 },
+
+    { "id": "hotdog", "cat": "kids", "fr": "Hot-dog BBQ + frites", "en": "BBQ hot dog + fries", "sizes": "single", "r": 8 },
+    { "id": "burger", "cat": "kids", "fr": "Hamburger BBQ + frites", "en": "BBQ hamburger + fries", "sizes": "single", "r": 15 },
+    { "id": "kidsmac", "cat": "kids", "fr": "Macaroni au fromage (portion enfant)", "en": "Mac & cheese (kids' portion)", "sizes": "single", "r": 10 },
+
+    { "id": "xchicken", "cat": "extras", "fr": "Morceau de poulet", "en": "Chicken piece", "sizes": "single", "r": 8 },
+    { "id": "xrib", "cat": "extras", "fr": "Côte levée de porc", "en": "Pork rib", "sizes": "single", "r": 7 },
+    { "id": "xchop", "cat": "extras", "fr": "Côtelette de porc", "en": "Pork chop", "sizes": "single", "r": 8 },
+    { "id": "xtilapia", "cat": "extras", "fr": "Tilapia", "en": "Tilapia", "sizes": "single", "r": 7 },
+    { "id": "xmackerel", "cat": "extras", "fr": "Maquereau", "en": "Mackerel", "sizes": "single", "r": 10 },
+    { "id": "xseabass", "cat": "extras", "fr": "Filet de bar sauté", "en": "Sautéed sea bass fillet", "sizes": "single", "r": 10 },
+    { "id": "xskewer", "cat": "extras", "fr": "Brochette de bœuf", "en": "Beef skewer", "sizes": "single", "r": 10 },
+    { "id": "xgoat", "cat": "extras", "fr": "Portion de chèvre", "en": "Goat meat portion", "sizes": "single", "r": 15 },
+
+    { "id": "choco", "cat": "cakes", "fr": "Gâteau au chocolat", "en": "Chocolate cake", "sizes": "single", "r": 30 },
+    { "id": "forest", "cat": "cakes", "fr": "Forêt-noire", "en": "Black forest", "sizes": "single", "r": 42 },
+    { "id": "straw", "cat": "cakes", "fr": "Gâteau aux fraises", "en": "Strawberry cake", "sizes": "single", "r": 40 },
+    { "id": "cheese", "cat": "cakes", "fr": "Gâteau au fromage", "en": "Cheesecake", "sizes": "single", "r": 45 },
+    { "id": "cheesestraw", "cat": "cakes", "fr": "Gâteau au fromage, nappage fraises", "en": "Cheesecake with strawberry topping", "sizes": "single", "r": 50, "featured": true },
+
+    { "id": "tomato", "cat": "sauces", "fr": "Sauce tomate rôtie (tout usage)", "en": "Roasted tomato sauce (all purpose)", "sizes": "ml", "r": 8, "l": 15 },
+    { "id": "greenmeat", "cat": "sauces", "fr": "Marinade verte poulet & viandes", "en": "Green marinade (chicken & meat)", "sizes": "ml", "r": 8, "l": 15 },
+    { "id": "greenfish", "cat": "sauces", "fr": "Marinade verte citronnée poisson & fruits de mer", "en": "Lemon green marinade (fish & seafood)", "sizes": "ml", "r": 7, "l": 14 },
+    { "id": "greendijon", "cat": "sauces", "fr": "Marinade verte citron & Dijon", "en": "Lemon & Dijon green marinade", "sizes": "ml", "r": 8, "l": 15 },
+    { "id": "tomatogreen", "cat": "sauces", "fr": "Sauce tomate rôtie & marinade verte (tout usage)", "en": "Roasted tomato & green marinade (all purpose)", "sizes": "ml", "r": 7, "l": 13 }
+  ]
+}
