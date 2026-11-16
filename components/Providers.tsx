@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import Link from 'next/link';
 import type { CartLine, Lang } from '@/lib/types';
 import { tx } from '@/lib/format';
+import { RevealObserver } from './Fx';
 
 interface CartCtx {
   lang: Lang;
@@ -62,6 +63,7 @@ export function Providers({ lang, children }: { lang: Lang; children: React.Reac
   return (
     <Ctx.Provider value={value}>
       {children}
+      <RevealObserver />
       {toast && (
         <div className="toast" role="status">
           <span>{toast}</span>

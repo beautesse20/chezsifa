@@ -20,7 +20,7 @@ export default async function CateringAdminPage() {
                     <td>{r.guests}</td>
                     <td style={{ whiteSpace: 'nowrap' }}>{r.event_date ? shortDate(r.event_date, 'fr') : 'à définir'}</td>
                     <td>{r.name}<div className="muted" style={{ fontSize: 12 }}><a href={'tel:' + r.phone}>{r.phone}</a></div>{r.email ? <div className="muted" style={{ fontSize: 12 }}><a href={'mailto:' + r.email}>{r.email}</a></div> : null}</td>
-                    <td style={{ maxWidth: 320, fontSize: 13 }}>{r.details || '—'}</td>
+                    <td style={{ maxWidth: 360, fontSize: 13, whiteSpace: 'pre-line' }}>{r.details || '—'}</td>
                     <td><CateringStatus id={r.id} status={r.status} /></td>
                   </tr>
                 ))}

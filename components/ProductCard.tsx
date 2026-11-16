@@ -28,7 +28,7 @@ export function ProductCard({ p, onAdd, onCompose }: { p: Product; onAdd?: (l: O
   };
 
   return (
-    <article className="card product">
+    <article className="card product" data-reveal>
       <Photo src={p.photo} alt={name} cat={p.cat} />
       {p.featured ? <span className="badge badge-gold" style={{ position: 'absolute', margin: 12 }}>{tx(lang, 'Coup de cœur', 'Favourite')}</span> : null}
       <div className="body">

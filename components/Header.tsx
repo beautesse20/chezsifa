@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCart } from './Providers';
 import { tx } from '@/lib/format';
 
@@ -21,12 +21,21 @@ export function Header({ phone }: { phone: string }) {
   const { lang, count, ready } = useCart();
   const path = usePathname();
   const [open, setOpen] = useState(false);
+  const cartRef = useRef<HTMLAnchorElement>(null);
+  const prev = useRef(count);
+  useEffect(() => {
+    if (ready && count > prev.current && cartRef.current) {
+      const el = cartRef.current;
+      el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+    }
+    prev.current = count;
+  }, [count, ready]);
   const traiteur = path.startsWith('/traiteur');
   const links = traiteur
     ? [
         { href: '/traiteur#histoire', fr: 'Notre histoire', en: 'Our story' },
         { href: '/traiteur#concept', fr: 'Le concept', en: 'The concept' },
-        { href: '/traiteur#evenements', fr: 'Événements', en: 'Events' },
+        { href: '/traiteur#menu-traiteur', fr: 'La carte traiteur', en: 'Catering menu' },
         { href: '/traiteur#devis', fr: 'Devis', en: 'Quote' },
         { href: '/traiteur#contact', fr: 'Contact', en: 'Contact' }
       ]
@@ -65,7 +74,7 @@ export function Header({ phone }: { phone: string }) {
             </div>
             <LangButton />
             {!traiteur && (
-              <Link href="/panier" className="cart-btn" aria-label={tx(lang, `Panier, ${count} article(s)`, `Cart, ${count} item(s)`)}>
+              <Link href="/panier" ref={cartRef} className="cart-btn" aria-label={tx(lang, `Panier, ${count} article(s)`, `Cart, ${count} item(s)`)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z" /><path d="M9 7a3 3 0 0 1 6 0" /></svg>
                 <span className="label">{tx(lang, 'Panier', 'Cart')}</span>
                 <span className={'cart-count' + (count === 0 ? ' zero' : '')}>{ready ? count : 0}</span>
