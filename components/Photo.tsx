@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 const TINT: Record<string, string> = {
-  grill: '#FCE7DA', trad: '#E7F0E3', veg: '#E3F1E6', sides: '#FBF0D4', starters: '#FBE6D8', pasta: '#F6EBDD',
-  salads: '#E5F2E3', kids: '#EEF0FA', extras: '#FCE7DA', cakes: '#F8E3E6', sauces: '#FBE3D9'
+  grill: '#F1E7DC', trad: '#EAEDE5', veg: '#E9EEE6', sides: '#F4EDE0', starters: '#F2E8DE', pasta: '#F3EDE4',
+  salads: '#E9EEE6', kids: '#EEEDE9', extras: '#F1E7DC', cakes: '#F3EAE6', sauces: '#F2E7DE'
 };
 
 export function Photo({ src, alt, cat, style, label }: { src?: string | null; alt: string; cat: string; style?: React.CSSProperties; label?: string }) {

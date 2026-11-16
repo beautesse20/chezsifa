@@ -94,7 +94,7 @@ export default async function Home() {
             <span className="eyebrow" data-reveal>{tx(lang, 'Sélection du moment', 'Current selection')}</span>
             <h2 className="h-md" data-reveal style={{ marginBottom: 32 }}>{tx(lang, 'Les favoris de la maison', 'House favourites')}</h2>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
-              <article data-reveal style={{ background: 'var(--peach)', flex: '2 1 520px', minWidth: 0, borderRadius: 24, overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}>
+              <article data-reveal style={{ background: 'var(--sand)', flex: '2 1 520px', minWidth: 0, borderRadius: 24, overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}>
                 <Photo src={star.photo} alt={L(lang, star)} cat={star.cat} label={L(lang, star)} style={{ flex: '1 1 260px', minHeight: 300 }} />
                 <div style={{ flex: '1 1 260px', padding: '32px 30px', display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <span className="badge badge-gold" style={{ alignSelf: 'flex-start' }}>{tx(lang, 'COUP DE CŒUR', 'HOUSE FAVOURITE')}</span>
@@ -140,7 +140,7 @@ export default async function Home() {
           <h2 className="h-md center" data-reveal style={{ marginBottom: 40 }}>{tx(lang, 'Délais de commande', 'Order lead times')}</h2>
           <div className="grid g-auto-300">
             <div className="bg-dark" data-reveal style={{ borderRadius: 24, padding: '40px 36px' }}>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 104, lineHeight: .9, fontWeight: 800, color: 'var(--green)' }}>{settings.min_hours} h</div>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 104, lineHeight: .9, fontWeight: 800, color: 'var(--rust)' }}>{settings.min_hours} h</div>
               <h3 style={{ fontSize: 26, margin: '18px 0 8px' }}>{tx(lang, 'Commandez sur le site', 'Order online')}</h3>
               <p style={{ color: 'var(--muted)', marginBottom: 24 }}>{tx(lang, `Choisissez votre date à partir de ${settings.min_hours} h. Chez Sifa confirme, vous payez par Interac, on prépare.`, `Pick your date from ${settings.min_hours} h ahead. Chez Sifa confirms, you pay by Interac, we cook.`)}</p>
               <div className="btn-row"><Link href="/composer" className="btn btn-primary">{tx(lang, 'Commander en ligne', 'Order online')}</Link><Link href="/semaine" className="btn btn-ghost">{tx(lang, 'Planifier ma semaine', 'Plan my week')}</Link></div>

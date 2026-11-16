@@ -494,3 +494,50 @@ span.rise, em.rise { display: inline-block; }
 /* typographie plus nette */
 .h-md { letter-spacing: -.6px; }
 .eyebrow { letter-spacing: 2.4px; font-size: 12px; }
+
+/* ================= Palette élégante ================= */
+:root {
+  --ink: #1F1A17; --charcoal: #1F1A17; --charcoal-2: #2C2521; --charcoal-3: #3A312B;
+  --muted: #6B6159; --muted-2: #8A8077;
+  --rust: #A34F2C; --rust-dark: #853F22; --ember: #A34F2C; --ember-light: #D9A27A;
+  --gold: #B8924A; --green: #2F4A3A; --green-bg: #E9EEE8;
+  --cream: #FAF7F2; --sand: #F3EDE4; --line: #ECE4D9; --line-2: #DDD2C4;
+  --sage: #EEF1EA; --peach: #F5ECE3; --butter: #F6F0E4; --blush: #F4EDE7;
+}
+.btn-primary { box-shadow: 0 8px 20px rgba(163,79,44,.18); }
+.btn-primary:hover { box-shadow: 0 10px 24px rgba(163,79,44,.26); }
+.badge-gold { background: var(--gold); color: #fff; }
+.eyebrow { color: var(--rust); }
+.hero .eyebrow { color: var(--gold); }
+.hero-blob { background: radial-gradient(circle, #F1E6D8 0%, rgba(241,230,216,0) 70%); }
+.hero-blob.b2 { background: radial-gradient(circle, #EAEEE6 0%, rgba(234,238,230,0) 70%); }
+.kuba { height: 6px; background: linear-gradient(90deg, var(--gold), var(--rust) 50%, var(--gold)); opacity: .55; }
+.h-xl, .h-lg, .h-md { color: var(--ink); }
+.hero-copy em { color: var(--rust); }
+.size.on, .chip.on { background: #F7EEE6; }
+.dish.on { background: #F7EEE6; }
+.picked-chip { background: #F1E4D8; color: var(--rust-dark); }
+.on-demand { background: var(--butter); border-color: #D9C69E; }
+.grill-band { background: #1A1512; }
+.grill-icon { background: rgba(184,146,74,.16); color: #D9B877; }
+.grill-band .eyebrow { color: #D9B877 !important; }
+.tab.on { background: var(--ink); border-color: var(--ink); }
+.cart-count { background: #fff; color: var(--rust); }
+
+/* ================= Police élégante ================= */
+:root { --serif: 'Cormorant Garamond', 'Cormorant', Garamond, Georgia, serif; }
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: 0; }
+.h-xl { font-size: clamp(50px, 7vw, 88px); letter-spacing: -.5px; line-height: .98; }
+.h-lg { font-size: clamp(40px, 5vw, 62px); letter-spacing: -.3px; }
+.h-md { font-size: clamp(34px, 4vw, 50px); letter-spacing: -.2px; }
+.hero-copy em, .h-xl em { font-weight: 500; }
+.brand b { font-weight: 700; font-size: 25px; letter-spacing: 4px; }
+.product h3 { font-size: 23px; }
+.universe h3 { font-size: 27px; }
+.step-title { font-size: 24px; }
+.summary h3, .ticket-top p { font-weight: 600; }
+.ticket-top p, .hero-visual .ticket-top p { font-size: 25px; line-height: 1.1; }
+.size strong { font-size: 19px; }
+.total-row strong { font-size: 42px; }
+.grill-item h3 { font-size: 24px; }
+.eyebrow { font-weight: 700; letter-spacing: 3px; }
