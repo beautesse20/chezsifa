@@ -5,8 +5,8 @@ import { Providers } from '@/components/Providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chezsifa.vercel.app'),
-  title: { default: 'Chez Sifa – Grillades au charbon & cuisine congolaise', template: '%s · Chez Sifa' },
-  description: 'Grillades au charbon, plats congolais et est-africains, gâteaux et sauces maison. Commandez en ligne, prêt en 48 h, à récupérer à Surrey (C.-B.). Service traiteur pour vos événements.',
+  title: { default: 'Chez Sifa – BBQ au charbon de bois & cuisine congolaise', template: '%s · Chez Sifa' },
+  description: 'BBQ et grillades au charbon de bois, plats congolais, gâteaux et sauces maison. Commandez en ligne, prêt en 48 h, à récupérer à Surrey (C.-B.). Service traiteur pour vos événements.',
   openGraph: {
     title: 'Chez Sifa – Le goût du charbon, prêt en 48 h',
     description: 'Commandez en ligne vos grillades, plats du pays et douceurs maison. Service traiteur en Colombie-Britannique.',

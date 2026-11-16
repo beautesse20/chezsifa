@@ -8,7 +8,7 @@ import { CateringBuilder } from '@/components/CateringBuilder';
 
 export const metadata: Metadata = {
   title: 'Traiteur',
-  description: 'Chez Sifa, service traiteur : grillades au charbon et cuisine congolaise et est-africaine pour mariages, entreprises, églises et événements en Colombie-Britannique.'
+  description: 'Chez Sifa, service traiteur : BBQ au charbon de bois et cuisine congolaise pour mariages, entreprises, églises et événements en Colombie-Britannique.'
 };
 
 const ICON = { stroke: 'var(--charcoal)', strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
@@ -35,7 +35,7 @@ export default async function TraiteurPage() {
     ['var(--rust)', tx(lang, 'Une signature qu\'on reconnaît', 'A signature you\'ll recognize'), tx(lang, 'La grillade au charbon, cuisinée comme une spécialité assumée, pas une option parmi d\'autres.', 'Charcoal grilling, cooked as a proud specialty, not just another option.')],
     ['var(--gold)', tx(lang, 'Une authenticité vécue', 'A lived authenticity'), tx(lang, 'Des recettes et un savoir-faire familial transmis depuis la République démocratique du Congo.', 'Recipes and family know-how passed down from the Democratic Republic of Congo.')],
     ['var(--charcoal)', tx(lang, 'Une expérience traiteur éprouvée', 'Proven catering experience'), tx(lang, 'Des années à nourrir des communautés, des célébrations et des rassemblements.', 'Years spent feeding communities, celebrations and gatherings.')],
-    ['var(--green)', tx(lang, 'Rare en Colombie-Britannique', 'Rare in British Columbia'), tx(lang, 'Une cuisine congolaise et est-africaine authentique, encore difficile à trouver ici.', 'Authentic Congolese and East African cuisine, still hard to find here.')]
+    ['var(--green)', tx(lang, 'Rare en Colombie-Britannique', 'Rare in British Columbia'), tx(lang, 'Une cuisine congolaise authentique et un BBQ au charbon de bois, encore rares ici.', 'Authentic Congolese cuisine and charcoal BBQ, still rare here.')]
   ];
   const serve = lang === 'en'
     ? ['African communities', 'Local families', 'Churches', 'Businesses', 'Wedding planners', 'Cultural & community events']
@@ -47,7 +47,7 @@ export default async function TraiteurPage() {
         <div className="hero-blob" /><div className="hero-blob b2" />
         <div className="wrap center" style={{ position: 'relative', paddingTop: 96, paddingBottom: 104 }}>
           <div style={{ width: 76, height: 76, borderRadius: '50%', background: 'var(--peach)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px', boxShadow: '0 10px 24px rgba(0,0,0,.35)' }}><img src="/img/flame.png" alt="" width={38} height={38} /></div>
-          <span className="eyebrow">{tx(lang, 'Vente à emporter & traiteur · Colombie-Britannique', 'Takeout & catering · British Columbia')}</span>
+          <span className="eyebrow">{tx(lang, 'Traiteur BBQ au charbon de bois · Colombie-Britannique', 'Charcoal BBQ catering · British Columbia')}</span>
           <h1 className="rise" style={{ fontSize: 'clamp(52px, 8vw, 84px)', fontWeight: 800, letterSpacing: 2 }}>CHEZ SIFA</h1>
           <p className="rise" style={{ ['--d' as string]: '.2s', fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, color: 'var(--ember)', marginTop: 16 }}>{tx(lang, 'Grillades au feu de charbon', 'Charcoal fire grilling')}</p>
           <p className="lead" style={{ margin: '18px auto 34px' }}>{tx(lang, 'Des plats authentiques, cuits au charbon de bois et préparés avec le même soin qu\'à la maison, pour votre prochain événement.', 'Authentic dishes, cooked over charcoal and prepared with the same care as at home, for your next event.')}</p>

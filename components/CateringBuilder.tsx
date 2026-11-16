@@ -88,7 +88,7 @@ export function CateringBuilder({ catalog }: { catalog: Catalog }) {
           })}
         </div>
         <div className="on-demand">
-          <div className="on-demand-icon" aria-hidden="true">✦</div>
+          <div className="on-demand-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg></div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <label htmlFor="custom" style={{ display: 'block', fontFamily: 'var(--serif)', fontSize: 21, marginBottom: 4 }}>{tx(lang, 'Plats sur demande', 'Dishes on request')}</label>
             <p style={{ color: 'var(--muted)', fontSize: 14, marginBottom: 10 }}>{tx(lang, 'Un plat de chez vous, une recette familiale, un dessert particulier ? Décrivez-le : Chez Sifa vous dit ce qui est possible.', 'A dish from home, a family recipe, a special dessert? Describe it: Chez Sifa will tell you what is possible.')}</p>
@@ -115,7 +115,7 @@ export function CateringBuilder({ catalog }: { catalog: Catalog }) {
                   {picked.map((id) => <button key={id} type="button" className="picked-chip" onClick={() => toggle(id)} aria-label={tx(lang, 'Retirer ', 'Remove ') + L(lang, byId.get(id))}>{L(lang, byId.get(id))} ×</button>)}
                 </div>
               ) : <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 4 }}>{tx(lang, 'Choisissez dans la carte à côté, ou laissez Chez Sifa vous conseiller.', 'Pick from the menu, or let Chez Sifa advise you.')}</p>}
-              {custom.trim() ? <p style={{ color: 'var(--green)', fontSize: 13, marginTop: 8 }}>✦ {tx(lang, 'Plats sur demande ajoutés', 'Dishes on request added')}</p> : null}
+              {custom.trim() ? <p style={{ color: 'var(--green)', fontSize: 13, marginTop: 8 }}>+ {tx(lang, 'Plats sur demande ajoutés', 'Dishes on request added')}</p> : null}
             </div>
             <fieldset style={{ border: 0, margin: 0, padding: 0 }}>
               <legend className="lbl" style={lbl}>{tx(lang, 'Type d\'événement', 'Event type')} *</legend>

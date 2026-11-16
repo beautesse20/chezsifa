@@ -13,6 +13,10 @@ const UNIVERSES = [
   { cat: 'sauces', href: '/carte#sauces' }
 ];
 
+function Flame({ size = 16 }: { size?: number }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.3 3.2 4.9 4.6 7.3 1.9 3.2.9 7.6-2.4 9.6-1.2.7-2.7 1.1-4.2 1.1-3.9 0-7-2.8-7-6.6 0-2.4 1.2-4.2 2.6-5.5.2 1.8 1 3 2.3 3.6-.4-3.9 1.7-6.9 4.1-9.5z" /></svg>;
+}
+
 export default async function Home() {
   const lang = await getLang();
   const store = getStore();
@@ -30,9 +34,9 @@ export default async function Home() {
         <div className="hero-blob" /><div className="hero-blob b2" />
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow eyebrow-gold">{tx(lang, 'Cuisine congolaise & est-africaine · Surrey, C.-B.', 'Congolese & East African food · Surrey, BC')}</span>
+            <span className="eyebrow eyebrow-gold">{tx(lang, 'BBQ au charbon de bois · Surrey, C.-B.', 'Charcoal BBQ · Surrey, BC')}</span>
             <h1 className="h-xl"><span className="rise">{tx(lang, 'Le goût du charbon,', 'Charcoal flavour,')}</span><br /><em className="rise" style={{ ['--d' as string]: '.18s' }}>{tx(lang, 'prêt en 48 h.', 'ready in 48 h.')}</em></h1>
-            <p className="lead rise" style={{ ['--d' as string]: '.36s' }}>{tx(lang, 'Grillades marinées, pondu, makayabu, gâteaux et sauces maison. Composez votre commande en ligne, choisissez votre jour : on allume le feu.', 'Marinated grills, pondu, makayabu, homemade cakes and sauces. Build your order online, pick your day: we light the fire.')}</p>
+            <p className="lead rise" style={{ ['--d' as string]: '.36s' }}>{tx(lang, 'Viandes et poissons marinés, cuits au charbon de bois. Plats congolais, gâteaux et sauces maison. Commandez en ligne et choisissez votre date de ramassage.', 'Marinated meats and fish, cooked over charcoal. Congolese dishes, homemade cakes and sauces. Order online and choose your pickup date.')}</p>
             <div className="btn-row rise" style={{ ['--d' as string]: '.5s' }}>
               <Link href="/composer" className="btn btn-primary">{tx(lang, 'Composer mon assiette', 'Build my plate')}</Link>
               <Link href="/carte" className="btn btn-ghost">{tx(lang, 'Découvrir la carte', 'See the menu')}</Link>
@@ -40,7 +44,7 @@ export default async function Home() {
           </div>
           <div className="hero-visual rise" style={{ ['--d' as string]: '.3s' }}>
           <Photo src={star?.photo} alt={star ? L(lang, star) : ''} cat={star?.cat || 'grill'} label={star ? L(lang, star) : undefined} />
-          <span className="hero-badge"><i />{tx(lang, 'Cuit au charbon', 'Charcoal grilled')}</span>
+          <span className="hero-badge"><Flame />{tx(lang, 'Cuit au charbon de bois', 'Charcoal grilled')}</span>
           <div className="ticket" aria-label={tx(lang, 'Délai de commande', 'Order timing')}>
             <div className="ticket-top">
               <b>{tx(lang, 'VOTRE PROCHAINE COMMANDE', 'YOUR NEXT ORDER')}</b>
@@ -61,7 +65,7 @@ export default async function Home() {
       <section className="section" style={{ paddingBottom: 40 }}>
         <div className="wrap">
           <div data-reveal style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: 16, marginBottom: 36 }}>
-            <div><span className="eyebrow">{tx(lang, 'Nos quatre univers', 'Our four worlds')}</span><h2 className="h-md">{tx(lang, 'Qu\'est-ce qui vous fait ', 'What are you ')}{tx(lang, 'envie', 'craving')} ?</h2></div>
+            <div><span className="eyebrow">{tx(lang, 'La carte', 'The menu')}</span><h2 className="h-md">{tx(lang, 'Nos spécialités', 'Our specialties')}</h2></div>
             <p className="muted" style={{ maxWidth: 380 }}>{tx(lang, 'Tout se commande sur le site, en portion Regular ou Large.', 'Everything can be ordered online, in Regular or Large.')}</p>
           </div>
           <div className="grid g-auto-250">
@@ -87,8 +91,8 @@ export default async function Home() {
       {star && (
         <section className="section" style={{ paddingTop: 50 }}>
           <div className="wrap">
-            <span className="eyebrow" data-reveal>{tx(lang, 'En ce moment chez Sifa', 'Right now at Sifa\'s')}</span>
-            <h2 className="h-md" data-reveal style={{ marginBottom: 32 }}>{tx(lang, 'Les incontournables', 'The must-haves')}</h2>
+            <span className="eyebrow" data-reveal>{tx(lang, 'Sélection du moment', 'Current selection')}</span>
+            <h2 className="h-md" data-reveal style={{ marginBottom: 32 }}>{tx(lang, 'Les favoris de la maison', 'House favourites')}</h2>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
               <article data-reveal style={{ background: 'var(--peach)', flex: '2 1 520px', minWidth: 0, borderRadius: 24, overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}>
                 <Photo src={star.photo} alt={L(lang, star)} cat={star.cat} label={L(lang, star)} style={{ flex: '1 1 260px', minHeight: 300 }} />
@@ -108,9 +112,32 @@ export default async function Home() {
         </section>
       )}
 
+      <section className="grill-band">
+        <div className="wrap">
+          <div className="grill-head" data-reveal>
+            <span className="eyebrow" style={{ color: 'var(--ember-light)' }}>{tx(lang, 'Notre savoir-faire', 'Our craft')}</span>
+            <h2 className="h-md" style={{ color: '#fff' }}>{tx(lang, 'Le BBQ au charbon de bois, notre signature', 'Charcoal BBQ, our signature')}</h2>
+          </div>
+          <div className="grill-grid">
+            {[
+              [tx(lang, 'Marinades maison', 'House marinades'), tx(lang, 'Poulet, porc, bœuf, chèvre et poisson marinés avec nos marinades vertes et nos épices.', 'Chicken, pork, beef, goat and fish marinated with our green marinades and spices.')],
+              [tx(lang, 'Cuisson au charbon de bois', 'Cooked over charcoal'), tx(lang, 'Une cuisson lente sur la braise pour une viande tendre et un vrai goût fumé.', 'Slow-cooked over embers for tender meat and a true smoky flavour.')],
+              [tx(lang, 'Servi avec l\'accompagnement de votre choix', 'Served with your choice of side'), tx(lang, 'Plantain frit, haricots, pois chiches ou riz, en portion Regular ou Large.', 'Fried plantain, beans, chickpeas or rice, in Regular or Large.')]
+            ].map(([t, d], i) => (
+              <div key={t} className="grill-item" data-reveal style={{ ['--d' as string]: `${i * 0.1}s` }}>
+                <span className="grill-icon"><Flame size={20} /></span>
+                <h3>{t}</h3>
+                <p>{d}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 34 }} data-reveal><Link href="/carte#grill" className="btn btn-primary">{tx(lang, 'Voir les grillades', 'See the grills')}</Link></div>
+        </div>
+      </section>
+
       <section className="section bg-sand">
         <div className="wrap">
-          <h2 className="h-md center" data-reveal style={{ marginBottom: 40 }}>{tx(lang, 'Quand voulez-vous ', 'When do you want to ')}{tx(lang, 'manger', 'eat')} ?</h2>
+          <h2 className="h-md center" data-reveal style={{ marginBottom: 40 }}>{tx(lang, 'Délais de commande', 'Order lead times')}</h2>
           <div className="grid g-auto-300">
             <div className="bg-dark" data-reveal style={{ borderRadius: 24, padding: '40px 36px' }}>
               <div style={{ fontFamily: 'var(--serif)', fontSize: 104, lineHeight: .9, fontWeight: 800, color: 'var(--green)' }}>{settings.min_hours} h</div>
@@ -120,7 +147,7 @@ export default async function Home() {
             </div>
             <div data-reveal style={{ ['--d' as string]: '.12s', background: 'var(--white)', border: '1.5px solid var(--line-2)', borderRadius: 24, padding: '40px 36px' }}>
               <div style={{ fontFamily: 'var(--serif)', fontSize: 104, lineHeight: .9, fontWeight: 800 }}>24 h</div>
-              <h3 style={{ fontSize: 26, margin: '18px 0 8px' }}>{tx(lang, 'C\'est plus pressé ?', 'In a hurry?')}</h3>
+              <h3 style={{ fontSize: 26, margin: '18px 0 8px' }}>{tx(lang, 'Commande urgente', 'Urgent order')}</h3>
               <p className="muted" style={{ marginBottom: 24 }}>{tx(lang, 'Pour une commande dans les 24 h, appelez Chez Sifa : on vérifie ensemble ce qui est possible.', 'For an order within 24 h, call Chez Sifa: we\'ll check together what\'s possible.')}</p>
               <a href={tel} className="btn btn-outline">{settings.phone}</a>
             </div>
@@ -130,7 +157,7 @@ export default async function Home() {
 
       <section className="section">
         <div className="wrap">
-          <div className="center" data-reveal><span className="eyebrow">{tx(lang, 'Commander, c\'est simple', 'Ordering is easy')}</span><h2 className="h-md" style={{ marginBottom: 44 }}>{tx(lang, 'Trois étapes, zéro stress', 'Three steps, zero stress')}</h2></div>
+          <div className="center" data-reveal><span className="eyebrow">{tx(lang, 'Fonctionnement', 'How it works')}</span><h2 className="h-md" style={{ marginBottom: 44 }}>{tx(lang, 'Commander en trois étapes', 'Order in three steps')}</h2></div>
           <div className="grid g-auto-250" style={{ gap: 30 }}>
             {[
               { n: '01', c: 'var(--rust)', fr: ['Composez votre panier', `Assiettes, plats du pays, douceurs et sauces dans une seule commande. Choisissez votre date (${settings.min_hours} h minimum).`], en: ['Fill your cart', `Plates, traditional dishes, cakes and sauces in one order. Pick your date (${settings.min_hours} h minimum).`] },
