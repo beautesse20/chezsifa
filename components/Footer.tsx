@@ -9,7 +9,7 @@ export function Footer({ lang, phone }: { lang: Lang; phone: string }) {
       <footer className="site-footer">
         <div className="wrap foot-grid">
           <div>
-            <div style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 24, letterSpacing: 3, color: '#fff' }}>CHEZ SIFA</div>
+            <div style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 24, letterSpacing: 3, color: 'var(--ink)' }}>CHEZ SIFA</div>
             <p className="foot-quote">{tx(lang, '« Chaque repas donne l\'impression d\'être chez soi. »', '“Every meal feels like home.”')}</p>
           </div>
           <nav aria-label={tx(lang, 'Commander', 'Order')}>
@@ -25,8 +25,8 @@ export function Footer({ lang, phone }: { lang: Lang; phone: string }) {
             <Link href="/traiteur#histoire">{tx(lang, 'Notre histoire', 'Our story')}</Link>
           </nav>
           <div className="col">
-            <a href={'tel:+1' + phone.replace(/\D/g, '').slice(-10)} style={{ color: '#fff', fontWeight: 700 }}>{phone}</a>
-            <a href="mailto:chezsifa@gmail.com" style={{ color: 'var(--gold)' }}>chezsifa@gmail.com</a>
+            <a href={'tel:+1' + phone.replace(/\D/g, '').slice(-10)} style={{ color: 'var(--ink)', fontWeight: 700 }}>{phone}</a>
+            <a href="mailto:chezsifa@gmail.com" style={{ color: 'var(--rust)' }}>chezsifa@gmail.com</a>
             <span>Surrey, {tx(lang, 'Colombie-Britannique', 'British Columbia')}</span>
             <span>{tx(lang, 'Ramassage uniquement · paiement Interac', 'Pickup only · Interac payment')}</span>
           </div>

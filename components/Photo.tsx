@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 const TINT: Record<string, string> = {
-  grill: '#3A2C25', trad: '#2F3B2A', veg: '#3E5A3A', sides: '#6B4A22', starters: '#6B2E1A', pasta: '#5B3A29',
-  salads: '#3E5A3A', kids: '#4A4038', extras: '#3A2C25', cakes: '#5A2A33', sauces: '#6B2E1A'
+  grill: '#FCE7DA', trad: '#E7F0E3', veg: '#E3F1E6', sides: '#FBF0D4', starters: '#FBE6D8', pasta: '#F6EBDD',
+  salads: '#E5F2E3', kids: '#EEF0FA', extras: '#FCE7DA', cakes: '#F8E3E6', sauces: '#FBE3D9'
 };
 
-export function Photo({ src, alt, cat, style }: { src?: string | null; alt: string; cat: string; style?: React.CSSProperties }) {
+export function Photo({ src, alt, cat, style, label }: { src?: string | null; alt: string; cat: string; style?: React.CSSProperties; label?: string }) {
   return (
-    <div className="ph" style={{ backgroundColor: TINT[cat] || '#3A2C25', ...style }}>
-      {src ? <img src={src} alt={alt} loading="lazy" /> : <span className="ph-icon"><img src="/img/flame.png" alt="" /></span>}
+    <div className="ph" style={{ backgroundColor: TINT[cat] || '#F5EEE5', ...style }}>
+      {src ? <img src={src} alt={alt} loading="lazy" /> : <span className="ph-icon"><img src="/img/flame.png" alt="" />{label ? <em className="ph-label">{label}</em> : null}</span>}
     </div>
   );
 }

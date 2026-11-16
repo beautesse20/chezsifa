@@ -5,10 +5,6 @@ import { getLang } from '@/lib/server';
 import { getStore } from '@/lib/store';
 import { tx } from '@/lib/format';
 import { CateringBuilder } from '@/components/CateringBuilder';
-import { CATERING_CATS } from '@/lib/catering';
-import { HeroSpot } from '@/components/Fx';
-import { Marquee } from '@/components/Marquee';
-import { L } from '@/lib/format';
 
 export const metadata: Metadata = {
   title: 'Traiteur',
@@ -48,22 +44,19 @@ export default async function TraiteurPage() {
   return (
     <>
       <section className="hero">
-        <div className="glow1" /><div className="glow2" />
-        <HeroSpot />
+        <div className="hero-blob" /><div className="hero-blob b2" />
         <div className="wrap center" style={{ position: 'relative', paddingTop: 96, paddingBottom: 104 }}>
-          <div style={{ width: 76, height: 76, borderRadius: '50%', background: 'var(--rust)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px', boxShadow: '0 10px 24px rgba(0,0,0,.35)' }}><img src="/img/flame.png" alt="" width={38} height={38} /></div>
-          <span className="eyebrow eyebrow-gold">{tx(lang, 'Vente à emporter & traiteur · Colombie-Britannique', 'Takeout & catering · British Columbia')}</span>
-          <h1 className="rise" style={{ fontSize: 'clamp(52px, 8vw, 84px)', fontWeight: 800, letterSpacing: 2, color: '#fff' }}>CHEZ SIFA</h1>
+          <div style={{ width: 76, height: 76, borderRadius: '50%', background: 'var(--peach)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px', boxShadow: '0 10px 24px rgba(0,0,0,.35)' }}><img src="/img/flame.png" alt="" width={38} height={38} /></div>
+          <span className="eyebrow">{tx(lang, 'Vente à emporter & traiteur · Colombie-Britannique', 'Takeout & catering · British Columbia')}</span>
+          <h1 className="rise" style={{ fontSize: 'clamp(52px, 8vw, 84px)', fontWeight: 800, letterSpacing: 2 }}>CHEZ SIFA</h1>
           <p className="rise" style={{ ['--d' as string]: '.2s', fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, color: 'var(--ember)', marginTop: 16 }}>{tx(lang, 'Grillades au feu de charbon', 'Charcoal fire grilling')}</p>
-          <p className="lead" style={{ color: '#D8CCC1', margin: '18px auto 34px' }}>{tx(lang, 'Des plats authentiques, cuits au charbon de bois et préparés avec le même soin qu\'à la maison, pour votre prochain événement.', 'Authentic dishes, cooked over charcoal and prepared with the same care as at home, for your next event.')}</p>
+          <p className="lead" style={{ margin: '18px auto 34px' }}>{tx(lang, 'Des plats authentiques, cuits au charbon de bois et préparés avec le même soin qu\'à la maison, pour votre prochain événement.', 'Authentic dishes, cooked over charcoal and prepared with the same care as at home, for your next event.')}</p>
           <div className="btn-row rise" style={{ ['--d' as string]: '.4s', justifyContent: 'center' }}>
             <a href="#menu-traiteur" className="btn btn-primary">{tx(lang, 'Composer mon menu traiteur', 'Build my catering menu')}</a>
             <Link href="/" className="btn btn-ghost">{tx(lang, 'Commander pour moi', 'Order for myself')}</Link>
           </div>
         </div>
       </section>
-      <div className="kuba" />
-      <Marquee items={catalog.products.filter((p) => CATERING_CATS.includes(p.cat)).slice(0, 20).map((p) => L(lang, p))} />
 
       <section id="histoire" className="section" style={{ scrollMarginTop: 80 }}>
         <div className="wrap" style={{ display: 'flex', flexWrap: 'wrap', gap: 54, alignItems: 'center' }}>
@@ -74,11 +67,10 @@ export default async function TraiteurPage() {
             <p style={{ marginBottom: 16, fontSize: 16 }}>{tx(lang, 'Arrivée à Montréal, puis entourée de jeunes loin de leur famille, j\'ai poursuivi cette tradition sans m\'en rendre compte. Mon appartement est devenu un lieu de rassemblement : repas partagés, histoires écoutées, moments de réconfort.', 'After arriving in Montreal, and later surrounded by young people far from their families, I carried on that tradition without even realizing it. My apartment became a gathering place: shared meals, stories heard, moments of comfort.')}</p>
             <p style={{ fontSize: 16 }}>{tx(lang, 'En m\'installant en Colombie-Britannique, j\'ai voulu porter cette hospitalité plus loin. Chez Sifa est né de ce désir : faire de chaque repas un moment qui donne l\'impression d\'être chez soi.', 'When I settled in British Columbia, I wanted to carry that hospitality further. Chez Sifa was born from that desire: to turn every meal into a moment that feels like home.')}</p>
           </div>
-          <figure data-reveal style={{ ['--d' as string]: '.15s', flex: '2 1 340px', minWidth: 0, margin: 0, background: 'var(--rust)', color: '#fff', borderRadius: 24, padding: '44px 38px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-            <div className="kuba" style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 12 }} />
+          <figure data-reveal style={{ ['--d' as string]: '.15s', flex: '2 1 340px', minWidth: 0, margin: 0, background: 'var(--peach)', color: 'var(--ink)', borderRadius: 24, padding: '44px 38px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <blockquote style={{ margin: '10px 0 24px', fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 25, lineHeight: 1.4 }}>{tx(lang, '« Chaque plat raconte une histoire. Chaque repas donne l\'impression d\'être chez soi. »', '“Every dish tells a story. Every meal feels like home.”')}</blockquote>
             <div style={{ width: 46, height: 2, background: 'var(--gold)', margin: '0 auto 14px' }} />
-            <figcaption style={{ fontWeight: 800, fontSize: 13.5, color: '#FFE3C8' }}>{tx(lang, 'Fondatrice, Chez Sifa', 'Founder, Chez Sifa')}</figcaption>
+            <figcaption style={{ fontWeight: 800, fontSize: 13.5, color: 'var(--rust-dark)' }}>{tx(lang, 'Fondatrice, Chez Sifa', 'Founder, Chez Sifa')}</figcaption>
           </figure>
         </div>
       </section>
@@ -89,7 +81,7 @@ export default async function TraiteurPage() {
           <div className="grid g-auto-250">
             {concept.map(([t, d, icon], i) => (
               <div key={t} className="card pad" data-reveal style={{ ['--d' as string]: `${i * 0.1}s` }}>
-                <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--rust)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><svg width="26" height="26" viewBox="0 0 24 24" {...ICON} aria-hidden="true">{icon}</svg></div>
+                <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--peach)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><svg width="26" height="26" viewBox="0 0 24 24" {...ICON} aria-hidden="true">{icon}</svg></div>
                 <h3 style={{ fontSize: 21, margin: '18px 0 6px' }}>{t}</h3>
                 <p className="muted">{d}</p>
               </div>
@@ -107,7 +99,7 @@ export default async function TraiteurPage() {
           </div>
           <div className="grid g-auto-250" style={{ gap: 14 }}>
             {events.map(([t, d], i) => (
-              <div key={t} data-reveal style={{ ['--d' as string]: `${(i % 3) * 0.1}s`, background: 'var(--charcoal-2)', borderRadius: 18, padding: 24 }}><h3 style={{ fontSize: 20, marginBottom: 6 }}>{t}</h3><p style={{ color: '#D8CCC1', fontSize: 14 }}>{d}</p></div>
+              <div key={t} data-reveal style={{ ['--d' as string]: `${(i % 3) * 0.1}s`, background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 18, padding: 24 }}><h3 style={{ fontSize: 20, marginBottom: 6 }}>{t}</h3><p style={{ color: 'var(--muted)', fontSize: 14 }}>{d}</p></div>
             ))}
           </div>
 
@@ -140,8 +132,8 @@ export default async function TraiteurPage() {
           <h2 className="h-md">{tx(lang, 'Envie de goûter Chez Sifa ?', 'Craving a taste of Chez Sifa?')}</h2>
           <p className="lead" style={{ margin: '14px auto 26px' }}>{tx(lang, 'Écrivez-nous pour réserver un service traiteur, ou simplement dire bonjour.', 'Write to us to book catering, or just say hello.')}</p>
           <a href="mailto:chezsifa@gmail.com" style={{ display: 'block', fontFamily: 'var(--serif)', fontSize: 24, color: 'var(--ember)' }}>chezsifa@gmail.com</a>
-          <a href={tel} style={{ display: 'block', marginTop: 6, fontFamily: 'var(--serif)', fontSize: 20, color: '#fff' }}>{settings.phone}</a>
-          <p style={{ marginTop: 8, color: '#9C8E82', fontSize: 14 }}>{tx(lang, 'Colombie-Britannique, Canada', 'British Columbia, Canada')}</p>
+          <a href={tel} style={{ display: 'block', marginTop: 6, fontFamily: 'var(--serif)', fontSize: 20, color: 'var(--ink)' }}>{settings.phone}</a>
+          <p style={{ marginTop: 8, color: 'var(--muted)', fontSize: 14 }}>{tx(lang, 'Colombie-Britannique, Canada', 'British Columbia, Canada')}</p>
         </div>
       </section>
     </>

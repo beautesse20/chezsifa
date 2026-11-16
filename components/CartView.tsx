@@ -214,14 +214,14 @@ export function CartView({ catalog, today, first, phone, minHours }: { catalog: 
             </div>
             {promo ? <p className="ok" style={{ marginTop: 8 }}>✓ {promo.message}</p> : promoErr ? <p className="error" style={{ marginTop: 8 }}>{promoErr}</p> : null}
           </div>
-          <div className="bg-dark" style={{ padding: '22px 24px 26px' }}>
-            {pickupDate ? <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, fontSize: 14, color: '#D8CCC1', marginBottom: 6 }}><span>{tx(lang, 'Ramassage', 'Pickup')}</span><span style={{ textAlign: 'right' }}>{weekly && mode === 'daily' ? tx(lang, 'chaque jour planifié', 'each planned day') : longDate(pickupDate, lang)}{time ? (lang === 'en' ? ` · around ${time}` : ` · vers ${time.replace(':', ' h ')}`) : ''}</span></div> : null}
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: '#D8CCC1', marginBottom: 6 }}><span>{tx(lang, 'Sous-total', 'Subtotal')}</span><span>{money(subtotal, lang)}</span></div>
-            {promo ? <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: '#8FD3A4', marginBottom: 6 }}><span>{tx(lang, 'Code ', 'Code ')}{promo.code}</span><span>−{money(discount, lang)}</span></div> : null}
+          <div style={{ padding: '22px 24px 26px', background: 'var(--cream)', borderTop: '1px solid var(--line)' }}>
+            {pickupDate ? <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, fontSize: 14, color: 'var(--muted)', marginBottom: 6 }}><span>{tx(lang, 'Ramassage', 'Pickup')}</span><span style={{ textAlign: 'right' }}>{weekly && mode === 'daily' ? tx(lang, 'chaque jour planifié', 'each planned day') : longDate(pickupDate, lang)}{time ? (lang === 'en' ? ` · around ${time}` : ` · vers ${time.replace(':', ' h ')}`) : ''}</span></div> : null}
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'var(--muted)', marginBottom: 6 }}><span>{tx(lang, 'Sous-total', 'Subtotal')}</span><span>{money(subtotal, lang)}</span></div>
+            {promo ? <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'var(--green)', marginBottom: 6 }}><span>{tx(lang, 'Code ', 'Code ')}{promo.code}</span><span>−{money(discount, lang)}</span></div> : null}
             <div className="total-row" style={{ marginTop: 10 }}><span>{tx(lang, 'TOTAL ESTIMÉ', 'ESTIMATED TOTAL')}</span><strong>{money(total, lang)}</strong></div>
-            {err ? <p role="alert" style={{ color: '#FFB8A0', fontWeight: 700, fontSize: 14, marginBottom: 12 }}>{err}</p> : null}
+            {err ? <p role="alert" style={{ color: 'var(--rust-dark)', fontWeight: 700, fontSize: 14, marginBottom: 12 }}>{err}</p> : null}
             <button type="button" className="btn btn-primary btn-block" disabled={busy} onClick={submit}>{busy ? tx(lang, 'Envoi…', 'Sending…') : tx(lang, 'Envoyer ma commande', 'Send my order')}</button>
-            <p className="hint" style={{ marginTop: 12, fontSize: 12.5, color: '#B9AC9E', textAlign: 'center' }}>{tx(lang, 'Avant taxes applicables. Vous recevez la confirmation et les infos de paiement Interac.', 'Before applicable taxes. You will receive the confirmation and Interac payment details.')}</p>
+            <p className="hint" style={{ marginTop: 12, fontSize: 12.5, color: 'var(--muted)', textAlign: 'center' }}>{tx(lang, 'Avant taxes applicables. Vous recevez la confirmation et les infos de paiement Interac.', 'Before applicable taxes. You will receive the confirmation and Interac payment details.')}</p>
           </div>
         </aside>
       </section>

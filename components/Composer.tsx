@@ -160,12 +160,12 @@ export function Composer({ catalog, initialDish, onAdd, footnote }: {
           <span className="eyebrow eyebrow-gold" style={{ marginBottom: 0 }}>{tx(lang, 'Votre assiette', 'Your plate')}</span>
           <h3>{dish ? L(lang, dish) : tx(lang, 'À composer', 'To build')}</h3>
           {!dish ? (
-            <p style={{ color: '#B9AC9E', fontSize: 14, paddingBottom: 18 }}>{s.cat ? tx(lang, 'Choisissez votre plat.', 'Choose your dish.') : tx(lang, 'Commencez par choisir une formule.', 'Start by choosing a formula.')}</p>
+            <p style={{ color: 'var(--muted)', fontSize: 14, paddingBottom: 18 }}>{s.cat ? tx(lang, 'Choisissez votre plat.', 'Choose your dish.') : tx(lang, 'Commencez par choisir une formule.', 'Start by choosing a formula.')}</p>
           ) : (
             <ul className="sum-list">
               <li><span>{L(lang, dish)}{dish.sizes === 'rl' ? ` (${s.size === 'l' ? 'Large' : 'Regular'})` : ''}</span><span>{money(dish.sizes === 'single' ? dish.r : s.size === 'l' ? dish.l ?? dish.r : dish.r, lang)}</span></li>
               {(dish.opts || []).map((g) => { const c = g.choices.find((x) => x.id === s.opts[g.key]); return c ? <li key={g.key}><span>{L(lang, c)}</span><span /></li> : null; })}
-              {dish.side && s.side ? <li><span>{L(lang, catalog.includedSides.find((x) => x.id === s.side))}</span><span style={{ color: '#B9AC9E' }}>{tx(lang, 'inclus', 'included')}</span></li> : null}
+              {dish.side && s.side ? <li><span>{L(lang, catalog.includedSides.find((x) => x.id === s.side))}</span><span style={{ color: 'var(--muted)' }}>{tx(lang, 'inclus', 'included')}</span></li> : null}
               {!kids && s.extras.map((x) => { const e = pm.get(x)!; return <li key={x}><span>+ {L(lang, e)}</span><span>{money(e.r, lang)}</span></li>; })}
               {!kids && s.extraSide ? <li><span>+ {L(lang, pm.get(s.extraSide))}</span><span>{money(pm.get(s.extraSide)!.r, lang)}</span></li> : null}
               {!kids && s.salad ? <li><span>+ {L(lang, pm.get(s.salad))}</span><span>{money(pm.get(s.salad)!.r, lang)}</span></li> : null}

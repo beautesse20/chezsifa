@@ -70,10 +70,10 @@ export default async function OrderPage({ params }: { params: Promise<{ token: s
               <>{tx(lang, 'Envoyez le virement à ', 'Send the transfer to ')}<strong style={{ color: 'var(--ember)' }}>{settings.interac_email}</strong></>,
               <>{tx(lang, 'Indiquez ', 'Write ')}<strong style={{ color: 'var(--ember)' }}>{order.number}</strong>{tx(lang, ' dans le message du virement.', ' in the transfer message.')}</>
             ].map((t, i) => (
-              <li key={i} style={{ display: 'flex', gap: 12 }}><span style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--rust)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, flexShrink: 0 }}>{i + 1}</span><span>{t}</span></li>
+              <li key={i} style={{ display: 'flex', gap: 12 }}><span style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--rust)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800, flexShrink: 0 }}>{i + 1}</span><span>{t}</span></li>
             ))}
           </ol>
-          <p style={{ marginTop: 20, background: 'var(--charcoal-2)', borderRadius: 14, padding: '14px 16px', fontSize: 14, color: '#D8CCC1' }}>{tx(lang, 'La préparation commence dès la réception du paiement.', 'Preparation starts once payment is received.')}</p>
+          <p style={{ marginTop: 20, background: 'var(--white)', borderRadius: 14, padding: '14px 16px', fontSize: 14, color: 'var(--muted)' }}>{tx(lang, 'La préparation commence dès la réception du paiement.', 'Preparation starts once payment is received.')}</p>
         </div>
 
         <div style={{ flex: '1 1 380px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
