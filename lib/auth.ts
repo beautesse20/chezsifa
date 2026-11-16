@@ -7,7 +7,7 @@ const DEMO_COOKIE = 'cs_demo_admin';
 
 export async function supabaseAuthClient() {
   const store = await cookies();
-  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!.trim().replace(/\/+$/, '').replace(/\/rest\/v1$/, ''), process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!.trim(), {
     cookies: {
       getAll: () => store.getAll(),
       setAll: (list) => {

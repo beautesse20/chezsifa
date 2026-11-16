@@ -16,5 +16,6 @@ menu.products.forEach((p, i) => {
 });
 out.push(`insert into promos (code, type, value, scope, min_total) values ('MASEMAINE', 'percent', 10, 'weekly', null) on conflict (code) do nothing;`);
 out.push(`insert into promos (code, type, value, scope, min_total) values ('BIENVENUE', 'fixed', 5, 'first', 40) on conflict (code) do nothing;`);
+out.push("insert into settings (id) values (1) on conflict (id) do nothing;");
 out.push('commit;');
 console.log(out.join('\n'));

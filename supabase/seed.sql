@@ -148,4 +148,5 @@ insert into products (id, cat, fr, en, dfr, den, sizes, r, l, lfr, len, side, op
   on conflict (id) do nothing;
 insert into promos (code, type, value, scope, min_total) values ('MASEMAINE', 'percent', 10, 'weekly', null) on conflict (code) do nothing;
 insert into promos (code, type, value, scope, min_total) values ('BIENVENUE', 'fixed', 5, 'first', 40) on conflict (code) do nothing;
+insert into settings (id) values (1) on conflict (id) do nothing;
 commit;
