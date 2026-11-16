@@ -541,3 +541,36 @@ h1, h2, h3, h4 { font-weight: 600; letter-spacing: 0; }
 .total-row strong { font-size: 42px; }
 .grill-item h3 { font-size: 24px; }
 .eyebrow { font-weight: 700; letter-spacing: 3px; }
+
+/* ================= Sans photos ================= */
+.product-top { display: flex; justify-content: space-between; align-items: center; padding: 18px 18px 0; }
+.product-ico { width: 44px; height: 44px; border-radius: 50%; background: var(--sand); color: var(--rust); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.product .body { padding-top: 14px; }
+.uni-top { height: 132px; background: var(--sand); display: flex; align-items: center; justify-content: flex-start; padding: 0 22px; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.uni-top::after { content: ''; position: absolute; right: -40px; top: -40px; width: 170px; height: 170px; border-radius: 50%; border: 1px solid var(--line-2); box-shadow: 0 0 0 22px rgba(255,255,255,.35), 0 0 0 44px rgba(255,255,255,.2); }
+.uni-top span { width: 64px; height: 64px; border-radius: 50%; background: var(--white); color: var(--rust); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(31,26,23,.08); position: relative; z-index: 1; }
+.universe:hover .uni-top span { color: var(--ink); }
+/* carte du grill dans le hero */
+.menu-card { position: absolute; inset: 0 0 64px 56px; border-radius: 30px; background: var(--charcoal); color: #EFE6DC; padding: 34px 32px 30px; display: flex; flex-direction: column; box-shadow: 0 30px 60px rgba(31,26,23,.18); overflow: hidden; }
+.menu-card::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 34px); pointer-events: none; }
+.menu-card::after { content: ''; position: absolute; left: 10%; right: 10%; bottom: -120px; height: 200px; border-radius: 50%; background: radial-gradient(ellipse, rgba(217,120,60,.3), transparent 70%); pointer-events: none; }
+.menu-card-k { position: relative; font-size: 11.5px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: #D9B877; margin-bottom: 14px; }
+.menu-card ul { position: relative; list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+.menu-card li { display: flex; align-items: baseline; gap: 8px; font-family: var(--serif); font-size: 21px; }
+.menu-card li i { flex: 1; border-bottom: 1px dotted rgba(239,230,220,.35); transform: translateY(-4px); }
+.menu-card li b { font-family: var(--sans); font-size: 14px; font-weight: 700; color: #D9B877; }
+.menu-card-foot { position: relative; margin-top: auto; padding-top: 14px; font-size: 12.5px; color: #B8AA9C; }
+.hero-visual .ticket { z-index: 2; }
+.hero-badge { z-index: 3; }
+/* encadré du coup de cœur sans photo */
+.star-side { flex: 1 1 240px; padding: 34px 30px; border-right: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+.star-side-k { font-size: 11.5px; letter-spacing: 2.6px; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-top: 8px; }
+.star-side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-family: var(--serif); font-size: 20px; }
+@media (max-width: 760px) { .menu-card { inset: 0 0 110px 20px; padding: 26px 22px; } .menu-card li { font-size: 18px; } .star-side { border-right: 0; border-bottom: 1px solid var(--line-2); } }
+.hero-visual.no-photo { min-height: 500px; }
+.hero-visual.no-photo .ticket, .hero-visual.no-photo .hero-badge { display: none; }
+.hero-visual.no-photo .menu-card { inset: 0; }
+.menu-card-date { position: relative; margin-top: 18px; padding-top: 16px; border-top: 1px dashed rgba(239,230,220,.25); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline; font-size: 13.5px; color: #CDBFB2; }
+.menu-card-date b { font-family: var(--serif); font-size: 22px; font-weight: 600; color: #fff; }
+@media (max-width: 760px) { .hero-visual.no-photo { min-height: 0; } .hero-visual.no-photo .menu-card { position: relative; inset: auto; } }
+.size.static:disabled { opacity: 1; color: inherit; }

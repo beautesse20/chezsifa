@@ -6,6 +6,7 @@ import { L, LD, money, tx } from '@/lib/format';
 import { basePrice, MAX_PACKS, MAX_QTY, PACK_SIZE } from '@/lib/pricing';
 import { useCart } from './Providers';
 import { Photo } from './Photo';
+import { CatIcon } from './CatIcon';
 
 export function needsComposer(p: Product) {
   return !!(p.side || (p.opts && p.opts.length));
@@ -29,17 +30,23 @@ export function ProductCard({ p, onAdd, onCompose }: { p: Product; onAdd?: (l: O
 
   return (
     <article className="card product" data-reveal>
-      <Photo src={p.photo} alt={name} cat={p.cat} />
-      {p.featured ? <span className="badge badge-gold" style={{ position: 'absolute', margin: 12 }}>{tx(lang, 'Coup de cœur', 'Favourite')}</span> : null}
+      {p.photo ? <Photo src={p.photo} alt={name} cat={p.cat} /> : null}
+      {p.photo && p.featured ? <span className="badge badge-gold" style={{ position: 'absolute', margin: 12 }}>{tx(lang, 'Coup de cœur', 'Favourite')}</span> : null}
+      {!p.photo ? (
+        <div className="product-top">
+          <span className="product-ico"><CatIcon cat={p.cat} size={22} /></span>
+          {p.featured ? <span className="badge badge-gold">{tx(lang, 'Coup de cœur', 'Favourite')}</span> : null}
+        </div>
+      ) : null}
       <div className="body">
         <div>
-          <h3>{name}{p.side ? <span style={{ fontFamily: 'var(--sans)', fontSize: 13, fontWeight: 700, color: 'var(--muted)' }}> {tx(lang, '+ 1 accompagnement', '+ 1 side')}</span> : null}</h3>
+          <h3>{name}</h3>{p.side ? <p style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--rust)', letterSpacing: .3, marginTop: 2 }}>{tx(lang, '+ 1 accompagnement inclus', '+ 1 side included')}</p> : null}
           {LD(lang, p) ? <p className="desc">{LD(lang, p)}</p> : null}
         </div>
         <div className="sizes">
           {p.sizes === 'rl' || p.sizes === 'ml' ? (
             (['r', 'l'] as Size[]).map((s) => (
-              <button key={s} type="button" className={'size' + (size === s ? ' on' : '')} aria-pressed={size === s} onClick={() => setSize(s)}>
+              <button key={s} type="button" className={'size' + (needsComposer(p) ? ' static' : size === s ? ' on' : '')} aria-pressed={needsComposer(p) ? undefined : size === s} disabled={needsComposer(p)} onClick={() => setSize(s)}>
                 <small>{p.sizes === 'ml' ? (s === 'l' ? '500 ml' : '250 ml') : s === 'l' ? 'Large' : 'Regular'}</small>
                 <strong>{s === 'l' && lLabel ? lLabel : money(s === 'l' ? p.l ?? p.r : p.r, lang)}</strong>
               </button>
@@ -56,7 +63,7 @@ export function ProductCard({ p, onAdd, onCompose }: { p: Product; onAdd?: (l: O
         {needsComposer(p) ? (
           onCompose
             ? <button type="button" className="btn btn-primary btn-block" onClick={() => onCompose(p)}>{tx(lang, 'Choisir et ajouter', 'Choose & add')}</button>
-            : <Link href={`/composer?plat=${p.id}`} className="btn btn-primary btn-block">{p.side ? tx(lang, 'Choisir l\'accompagnement', 'Choose your side') : tx(lang, 'Choisir la préparation', 'Choose the style')}</Link>
+            : <Link href={`/composer?plat=${p.id}`} className="btn btn-primary btn-block">{tx(lang, 'Composer', 'Build')}</Link>
         ) : (
           <div className="add-row">
             <div className="qty">

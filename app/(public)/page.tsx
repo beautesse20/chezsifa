@@ -4,6 +4,7 @@ import { getStore } from '@/lib/store';
 import { earliest } from '@/lib/dates';
 import { L, LD, longDate, money, tx } from '@/lib/format';
 import { Photo } from '@/components/Photo';
+import { CatIcon } from '@/components/CatIcon';
 import { ProductCard } from '@/components/ProductCard';
 
 const UNIVERSES = [
@@ -42,8 +43,19 @@ export default async function Home() {
               <Link href="/carte" className="btn btn-ghost">{tx(lang, 'Découvrir la carte', 'See the menu')}</Link>
             </div>
           </div>
-          <div className="hero-visual rise" style={{ ['--d' as string]: '.3s' }}>
-          <Photo src={star?.photo} alt={star ? L(lang, star) : ''} cat={star?.cat || 'grill'} label={star ? L(lang, star) : undefined} />
+          <div className={'hero-visual rise' + (star?.photo ? '' : ' no-photo')} style={{ ['--d' as string]: '.3s' }}>
+          {star?.photo ? <Photo src={star.photo} alt={L(lang, star)} cat={star.cat} /> : (
+            <div className="menu-card" aria-label={tx(lang, 'Extrait de la carte du grill', 'From the grill menu')}>
+              <span className="menu-card-k">{tx(lang, 'Au grill cette semaine', 'On the grill this week')}</span>
+              <ul>
+                {catalog.products.filter((p) => p.cat === 'grill').slice(0, 6).map((p) => (
+                  <li key={p.id}><span>{L(lang, p)}</span><i /><b>{money(p.r, lang)}</b></li>
+                ))}
+              </ul>
+              <span className="menu-card-foot">{tx(lang, 'Avec 1 accompagnement au choix · portions Regular ou Large', 'With 1 side of your choice · Regular or Large')}</span>
+              <div className="menu-card-date"><span>{tx(lang, 'Commandé aujourd\'hui, prêt dès le', 'Order today, ready from')}</span><b>{longDate(first, lang)}</b></div>
+            </div>
+          )}
           <span className="hero-badge"><Flame />{tx(lang, 'Cuit au charbon de bois', 'Charcoal grilled')}</span>
           <div className="ticket" aria-label={tx(lang, 'Délai de commande', 'Order timing')}>
             <div className="ticket-top">
@@ -75,7 +87,7 @@ export default async function Home() {
               const photo = catalog.products.find((p) => p.cat === u.cat && p.photo)?.photo;
               return (
                 <Link key={u.cat} href={u.href} className="card universe" data-reveal style={{ ['--d' as string]: `${ui * 0.1}s` }}>
-                  <Photo src={photo} alt="" cat={u.cat} label={u.fr ? tx(lang, u.fr, u.en!) : L(lang, c)} />
+                  {photo ? <Photo src={photo} alt="" cat={u.cat} /> : <div className="uni-top"><span><CatIcon cat={u.cat} size={34} /></span></div>}
                   <div className="body">
                     <h3>{u.fr ? tx(lang, u.fr, u.en!) : L(lang, c)}</h3>
                     <p>{LD(lang, c)}</p>
@@ -94,8 +106,14 @@ export default async function Home() {
             <span className="eyebrow" data-reveal>{tx(lang, 'Sélection du moment', 'Current selection')}</span>
             <h2 className="h-md" data-reveal style={{ marginBottom: 32 }}>{tx(lang, 'Les favoris de la maison', 'House favourites')}</h2>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
-              <article data-reveal style={{ background: 'var(--sand)', flex: '2 1 520px', minWidth: 0, borderRadius: 24, overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}>
-                <Photo src={star.photo} alt={L(lang, star)} cat={star.cat} label={L(lang, star)} style={{ flex: '1 1 260px', minHeight: 300 }} />
+              <article data-reveal style={{ alignSelf: 'flex-start', background: 'var(--sand)', flex: '2 1 520px', minWidth: 0, borderRadius: 24, overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}>
+                {star.photo ? <Photo src={star.photo} alt={L(lang, star)} cat={star.cat} style={{ flex: '1 1 260px', minHeight: 300 }} /> : (
+                  <div className="star-side">
+                    <span className="product-ico" style={{ width: 64, height: 64 }}><CatIcon cat={star.cat} size={32} /></span>
+                    <p className="star-side-k">{tx(lang, 'Accompagnements au choix', 'Choice of side')}</p>
+                    <ul>{catalog.includedSides.slice(0, 5).map((x) => <li key={x.id}>{L(lang, x)}</li>)}</ul>
+                  </div>
+                )}
                 <div style={{ flex: '1 1 260px', padding: '32px 30px', display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <span className="badge badge-gold" style={{ alignSelf: 'flex-start' }}>{tx(lang, 'COUP DE CŒUR', 'HOUSE FAVOURITE')}</span>
                   <h3 style={{ fontSize: 32 }}>{L(lang, star)}{star.side ? tx(lang, ' + 1 accompagnement', ' + 1 side') : ''}</h3>
