@@ -11,8 +11,7 @@ export const metadata: Metadata = {
     title: 'Chez Sifa – Le goût du charbon, prêt en 48 h',
     description: 'Commandez en ligne vos grillades, plats du pays et douceurs maison. Service traiteur en Colombie-Britannique.',
     url: 'https://chezsifa.vercel.app', siteName: 'Chez Sifa', locale: 'fr_CA', type: 'website'
-  },
-  icons: { icon: '/img/flame.png' }
+  }
 };
 
 export const viewport: Viewport = { themeColor: '#1E1714', width: 'device-width', initialScale: 1 };

@@ -5,6 +5,7 @@ import { money, round2, shortDate } from '@/lib/format';
 import type { Order } from '@/lib/types';
 import { PhoneOrderForm, StatusControl } from './widgets';
 import { STATUS_LABEL } from '@/lib/status';
+import { clientMessages } from '@/lib/messages';
 
 const VIEWS: Record<string, { label: string; f: (o: Order, today: string) => boolean }> = {
   'a-venir': { label: 'À venir', f: (o, t) => o.pickup_date >= t && o.status !== 'annulee' && o.status !== 'recuperee' },
@@ -18,7 +19,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
   const { vue = 'a-venir' } = await searchParams;
   const view = VIEWS[vue] ? vue : 'a-venir';
   const today = todayLocal();
-  const all = await getStore().listOrders();
+  const [all, settings] = await Promise.all([getStore().listOrders(), getStore().getSettings()]);
   const list = all.filter((o) => VIEWS[view].f(o, today));
   const monday = mondayOf(today);
   const paidWeek = all.filter((o) => ['payee', 'preparation', 'prete', 'recuperee'].includes(o.status) && o.pickup_date >= monday && o.pickup_date <= addDays(monday, 6));
@@ -68,7 +69,16 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
                       </td>
                       <td style={{ textAlign: 'right', fontWeight: 800 }}>{money(o.total)}</td>
                       <td><span className={'pill st-' + o.status}>{STATUS_LABEL[o.status]}</span></td>
-                      <td><StatusControl id={o.id} status={o.status} /></td>
+                      <td>
+                        <StatusControl id={o.id} status={o.status} />
+                        {o.status !== 'annulee' && o.status !== 'recuperee' ? (() => { const m = clientMessages(o, settings); return (
+                          <div className="msg-links" aria-label={'Message au client : ' + m.label}>
+                            <span>{m.label} :</span>
+                            <a href={m.whatsapp} target="_blank" rel="noopener">WhatsApp</a>
+                            <a href={m.sms}>Texto</a>
+                            {m.mail ? <a href={m.mail}>Courriel</a> : null}
+                          </div>); })() : null}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

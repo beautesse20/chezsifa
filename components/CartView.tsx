@@ -6,6 +6,7 @@ import type { Catalog } from '@/lib/types';
 import { longDate, money, round2, shortDate, tx } from '@/lib/format';
 import { lineDetails, lineTitle, productMap, unitPrice, MAX_PACKS, MAX_QTY, PACK_SIZE } from '@/lib/pricing';
 import { useCart } from './Providers';
+import { LAST_KEY } from './Extras';
 
 const MONTHS_AHEAD = 2;
 
@@ -99,6 +100,7 @@ export function CartView({ catalog, today, first, phone, minHours }: { catalog: 
       });
       const j = await r.json();
       if (!r.ok) { setErr(j.error || tx(lang, 'Une erreur est survenue.', 'Something went wrong.')); setBusy(false); return; }
+      try { localStorage.setItem(LAST_KEY, JSON.stringify({ date: new Date().toISOString(), lines: valid.map(({ key, day, ...rest }) => { void key; void day; return rest; }) })); } catch { /* */ }
       clear();
       router.push(`/commande/${j.token}`);
     } catch {

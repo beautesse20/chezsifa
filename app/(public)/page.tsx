@@ -5,6 +5,7 @@ import { earliest } from '@/lib/dates';
 import { L, LD, longDate, money, tx } from '@/lib/format';
 import { Photo } from '@/components/Photo';
 import { CatIcon } from '@/components/CatIcon';
+import { ReorderBanner } from '@/components/Extras';
 import { ProductCard } from '@/components/ProductCard';
 
 const UNIVERSES = [
@@ -31,11 +32,12 @@ export default async function Home() {
 
   return (
     <>
+      <ReorderBanner />
       <section className="hero">
         <div className="hero-blob" /><div className="hero-blob b2" />
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow eyebrow-gold">{tx(lang, 'BBQ au charbon de bois · Surrey, C.-B.', 'Charcoal BBQ · Surrey, BC')}</span>
+            <span className="eyebrow eyebrow-gold">{tx(lang, 'BBQ au charbon de bois · Surrey', 'Charcoal BBQ · Surrey, BC')}</span>
             <h1 className="h-xl"><span className="rise">{tx(lang, 'Le goût du charbon,', 'Charcoal flavour,')}</span><br /><em className="rise" style={{ ['--d' as string]: '.18s' }}>{tx(lang, 'prêt en 48 h.', 'ready in 48 h.')}</em></h1>
             <p className="lead rise" style={{ ['--d' as string]: '.36s' }}>{tx(lang, 'Viandes et poissons marinés, cuits au charbon de bois. Plats congolais, gâteaux et sauces maison. Commandez en ligne et choisissez votre date de ramassage.', 'Marinated meats and fish, cooked over charcoal. Congolese dishes, homemade cakes and sauces. Order online and choose your pickup date.')}</p>
             <div className="btn-row rise" style={{ ['--d' as string]: '.5s' }}>

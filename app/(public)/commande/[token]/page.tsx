@@ -6,6 +6,7 @@ import { getLang } from '@/lib/server';
 import { lineDetails, lineTitle, productMap } from '@/lib/pricing';
 import { longDate, money, shortDate, tx } from '@/lib/format';
 import type { OrderStatus } from '@/lib/types';
+import { AutoRefresh } from '@/components/Extras';
 
 export const metadata: Metadata = { title: 'Votre commande', robots: { index: false } };
 
@@ -34,6 +35,7 @@ export default async function OrderPage({ params }: { params: Promise<{ token: s
 
   return (
     <>
+      <AutoRefresh active={!['recuperee', 'annulee'].includes(order.status)} />
       <div className="kuba kuba-sm" />
       <section className="wrap-narrow center" style={{ paddingTop: 60, paddingBottom: 30 }}>
         <div style={{ width: 78, height: 78, borderRadius: '50%', background: order.status === 'annulee' ? 'var(--muted)' : 'var(--green)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px' }}>
